@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Assignment : MonoBehaviour
@@ -24,6 +25,12 @@ public class Assignment : MonoBehaviour
         // TODO: Implement logic to determine sign
         // Example: Debug.Log("Positive");
         throw new System.NotImplementedException();
+        if (as01Number > 0)
+            Debug.Log("Positive");
+        else if (as01Number < 0)
+            Debug.Log("Negative");
+        else
+            Debug.Log("Zero");
     }
 
     public int as02Day;
@@ -32,6 +39,18 @@ public class Assignment : MonoBehaviour
         // TODO: Implement logic to return day name
         // Example: Debug.Log("Monday");
         throw new System.NotImplementedException();
+        switch (as02Day)
+        {
+            case 1: Debug.Log("Monday"); break;
+            case 2: Debug.Log("Tuesday"); break;
+            case 3: Debug.Log("Wednesday"); break;
+            case 4: Debug.Log("Thursday"); break;
+            case 5: Debug.Log("Friday"); break;
+            case 6: Debug.Log("Saturday"); break;
+            case 7: Debug.Log("Sunday"); break;
+            default: Debug.Log("Invalid day"); break;
+
+        }
     }
 
     public string as03InputPassword;
@@ -41,6 +60,10 @@ public class Assignment : MonoBehaviour
         // TODO: Implement password validation logic
         // Example: Debug.Log("True");
         throw new System.NotImplementedException();
+        if (as03InputPassword == as03CorrectPassword)
+            Debug.Log("True");
+        else
+            Debug.Log("False");
     }
 
     public int as04Score;
@@ -49,6 +72,17 @@ public class Assignment : MonoBehaviour
         // TODO: Implement logic to return grade
         // Example: Debug.Log("A");
         throw new System.NotImplementedException();
+        if (as04Score >= 80)
+            Debug.Log("A");
+        if (as04Score >= 75)
+            Debug.Log("B");
+        if (as04Score >= 65)
+            Debug.Log("C");
+        if (as04Score >= 55)
+            Debug.Log("D");
+        if (as04Score >= 0)
+            Debug.Log("F");
+        else;
     }
 
     public int as05Year;
@@ -57,16 +91,46 @@ public class Assignment : MonoBehaviour
         // TODO: Implement leap year check logic
         // Example: Debug.Log("True");
         throw new System.NotImplementedException();
+        if (as05Year % 400 == 0)
+            Debug.Log("True");
+        else if (as05Year % 100 == 0)
+            Debug.Log("False");
+        else if (as05Year % 4 == 0)
+            Debug.Log("True");
+        else
+            Debug.Log("False");
+
     }
 
     public double as06Num1;
     public char as06Op;
     public double as06Num2;
+    double result;
     public void As06_Calculate()
     {
+
         // TODO: Implement calculator logic
         // Example: Debug.Log("Result: 42");
         throw new System.NotImplementedException();
+        switch (as06Op)
+        {
+            case '+': result = as06Num1 + as06Num2;
+                break;
+            case '/': result = as06Num1 / as06Num2;
+                break;
+            case '-': result = as06Num1 - as06Num2;
+                break;
+            case '*': result = as06Num1 * as06Num2;
+                break;
+                if (as06Num2 == 0)
+                    Debug.Log("Error: Cannot divide by zero.");
+                else
+                    result = as06Num1 / as06Num2;
+                break;
+            default:
+                Debug.Log("Invalid operator. Please use +, -, *, or /.");
+                return;
+        }
     }
 
     public int as07Month;
@@ -75,6 +139,16 @@ public class Assignment : MonoBehaviour
         // TODO: Implement logic to return season
         // Example: Debug.Log("Summer");
         throw new System.NotImplementedException();
+        if (as07Month >= 1 && as07Month <= 12)
+        {
+            if (as07Month == 12 || as07Month == 1 || as07Month == 2)
+                Debug.Log("It's Winter.");
+            else if (as07Month >= 3 && as07Month <= 5)
+                Debug.Log("It's Spring.");
+            else if (as07Month >= 9 && as07Month <= 11)
+                Debug.Log("It's Fall.");
+            else Debug.Log("Invalid month number.Please enter a number between 1 and 12.");
+        }
     }
 
     public int as08Quantity;
@@ -83,6 +157,19 @@ public class Assignment : MonoBehaviour
     public void As08_PurchasingSystemExample()
     {
         throw new System.NotImplementedException();
+        if (as08Quantity <= 0)
+            Debug.Log("Out Of Stock.");
+        if (as08Quantity > 0)
+        {
+            if (as08Payment >= as08Price)
+                Debug.Log("Payment Accept.");
+            if (as08Payment > as08Price)
+            {
+                int result = as08Payment - as08Price;
+                Debug.Log(result);
+            }
+        }
+
     }
 
     public int as09UserChoice;
@@ -90,6 +177,18 @@ public class Assignment : MonoBehaviour
     public void As09_RockPaperScissorsExample()
     {
         throw new System.NotImplementedException();
+        if (as09UserChoice >= 0 && as09UserChoice <= 2)
+        {
+            if (as09UserChoice == 0 && as09ComputerChoice == 2 ||
+                as09UserChoice == 1 && as09ComputerChoice == 0 ||
+                as09UserChoice == 1 && as09ComputerChoice == 0)
+                Debug.Log("YOU WIN");
+            else if (as09UserChoice == as09ComputerChoice)
+                Debug.Log("TIE");
+            else Debug.Log("LOSE");
+
+        }
+        else Debug.Log("Invalid Number, Please Insert Number Between 0-2");
     }
 
     public string as10WeaponType;
@@ -99,6 +198,19 @@ public class Assignment : MonoBehaviour
         // TODO: Add your implementation here
         // Example: Debug.Log("result as string");
         throw new System.NotImplementedException();
+        double multiplier = 1.0;
+        switch (as10WeaponType?.ToLower())
+        {
+            case "sword": multiplier = 1.3; break;
+            case "axe": multiplier = 1.4; break;
+            case "box": multiplier = 1.2; break;
+            case "staff": multiplier = 1.5; break;
+            case "dagger": multiplier = 1.1; break;
+            default: multiplier = 1.0; break;
+
+        }
+        int totalDamage = (int)(as10BaseDamage * multiplier);
+        Debug.Log(totalDamage.ToString());
     }
 
     public int as11Score;
@@ -108,5 +220,22 @@ public class Assignment : MonoBehaviour
         // TODO: Add your implementation here
         // Example: Debug.Log("result as string");
         throw new System.NotImplementedException();
+        if (as11Score < 0 || as11CompletionTime < 0)
+        {
+         Debug.Log("Invalid score or time");
+         return;
+         }
+
+         string rank; int baseCoins;
+        if (as11Score >= 8000) { rank = "Gold"; baseCoins = 100; }
+        else if (as11Score >= 6000) { rank = "Silver"; baseCoins = 75; }
+        else if (as11Score >= 4000) { rank = "Bronze"; baseCoins = 50; }
+        else if (as11Score >= 0) { rank = "Participation"; baseCoins = 25; }
+        int timeBonus = 0;
+        if (as11CompletionTime <= 30) timeBonus = 25;
+        else if (as11CompletionTime <= 60) timeBonus = 10;
+        else timeBonus = 0; 
+            int totalCoins = baseCoins + timeBonus;
+        Debug.Log($"{rank} Rank - {totalCoins} coins earned!");
     }
 }

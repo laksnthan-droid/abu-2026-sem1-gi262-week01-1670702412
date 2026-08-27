@@ -1,5 +1,3 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Workshop : MonoBehaviour
@@ -8,11 +6,11 @@ public class Workshop : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //As01_SyntaxIf();
-        //As02_StringComparisonExample();
-        //_NumberComparisonExample();
+        // As01_SyntaxIf();
+        // As02_StringComparisonExample();
+        // As03_NumberComparisonExample();
         // As04_AndOrOperatorExample();
-         As05_GuessingNumberExample();
+        // As05_GuessingNumberExample();
         // As06_GuessingNumberMoreOrLessExample();
         // As07_VerifyIdentityExample();
     }
@@ -20,82 +18,56 @@ public class Workshop : MonoBehaviour
     public bool isSixOClock;
     public void As01_SyntaxIf()
     {
-
         if (isSixOClock)
         {
-            Debug.Log("The door open");
-            
+            Debug.Log("The Door opens");
         }
-        Debug.Log("knock");
-
+        Debug.Log("Knock knock!");
     }
-
     public string password;
     public void As02_StringComparisonExample()
     {
-
+        if (password != "Moon")
+        {
+            Debug.Log("wrong password");
+        }
         if (password == "Moon")
         {
-
             Debug.Log("password is correct");
-
         }
-
     }
 
     public int as03Number;
     public void As03_NumberComparisonExample()
     {
-        if (as03Number > 10)
-        {
-            Debug.Log("My number > 10");
-        }
-        if (as03Number >= 10)
-        {
-            Debug.Log("My number >= 10");
-        }
-        if (as03Number < 10)
-        {
-            Debug.Log("My number < 10");
-        }
-        if (as03Number <= 10)
-        {
-            Debug.Log("My number <= 10");
-        }
-        if (as03Number == 10)
-        {
-            Debug.Log("My number == 10");
-        }
-        if (as03Number != 10)
-        {
-            Debug.Log("My number != 10");
-        }
+        if (as03Number > 10) // "My Number > 10"
+        if (as03Number < 10) // "My Number < 10"
+        if (as03Number == 10) // "My Number == 10"
+        if (as03Number >= 10) // "My Number >= 10"
+        if (as03Number <= 10) // "My Number <= 10"
+        if (as03Number != 10) ; // "My Number != 10"
     }
 
     public int as04Number;
     public void As04_AndOrOperatorExample()
     {
-        if (as04Number > 8 && as04Number < 12)
-        {
-            Debug.Log("My number 8 > < 12");
-        }
-        ;
-        if (as04Number > 8 || as04Number < 12)
-        {
-            Debug.Log("My number 8 || 12");
-        }
+        if (as04Number > 8 && as04Number < 12) // "My Number 8 > < 12"
+        if (as04Number > 8 || as04Number < 12) ; // "My Number or 8 || 12"
+
     }
+
     public int as05GuessingNumber;
     public int as05RandomNumber;
     public void As05_GuessingNumberExample()
     {
-
         if (as05GuessingNumber == as05RandomNumber)
         {
             Debug.Log("Congratulation");
         }
-        else { Debug.Log("Try again"); }
-
+        else
+        {
+            Debug.Log("Try again");
+        }
     }
 
     public int as06GuessingNumber;
@@ -116,34 +88,32 @@ public class Workshop : MonoBehaviour
         }
     }
 
-
     public string as07Username;
     public string as07Password;
     public int as07Age;
     public bool as07IsPaid;
     public void As07_VerifyIdentityExample()
     {
-        if (as07Username != null || as07Username == "user" && as07Password == "user123") 
+        if (as07Username == "user" && as07Password == "1234")
         {
-            Debug.Log("You have accessed");
+            Debug.Log("You have user access.");
             if (as07IsPaid)
             {
-                Debug.Log("VIP member");
+                Debug.Log("Welcome VIP member.");
             }
             else
             {
-                Debug.Log("Free member");
+                Debug.Log("Welcome free member.");
             }
+
             if (as07Age > 18)
             {
                 Debug.Log("You have access to exclusive content");
             }
-
-
-        } 
-       else {
-
-            Debug.Log("Your guest");     
+        }
+        else
+        {
+            Debug.Log("You have guest access.");
         }
     }
 }
